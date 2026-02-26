@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace cuentas_bancarias__con_herencia_.clasess
 {
+    /// <summary>
+    /// ARD 20260226
+    /// Se crearon 4 clases: cuentabancaria, cuentaahorros, cuentacorriente y cuentanomina. 
+    /// </summary>
     public class cuentanomina : cuentabancaria
     {
         public cuentanomina()
