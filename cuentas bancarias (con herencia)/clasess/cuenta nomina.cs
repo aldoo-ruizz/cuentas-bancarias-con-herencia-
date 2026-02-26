@@ -21,24 +21,42 @@ namespace cuentas_bancarias__con_herencia_.clasess
         public string empresa { get; set; }
         public void calcularinteresn()
         {
-            Console.WriteLine("escribe el nombre de tu empresa");
-            empresa = Console.ReadLine();
-            Console.WriteLine($"saldo depositado en {empresa} el interes mensual es de {saldo * 0.01}");
+            try
+            {
+                Console.WriteLine("escribe el nombre de tu empresa");
+                empresa = Console.ReadLine();
+                Console.WriteLine($"saldo depositado en {empresa} el interes mensual es de {saldo * 0.01}");
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex.Message);
+            }
+            
         }
         public void retirar()
         {
             Console.WriteLine("¿Cuánto deseas retirar?");
             double retiro = Convert.ToDouble(Console.ReadLine());
 
-            if (retiro <= saldo)
+            try
             {
-                saldo -= retiro;
-                Console.WriteLine("Retiro realizado. Saldo: " + saldo);
+                if (retiro <= saldo)
+                {
+                    saldo -= retiro;
+                    Console.WriteLine("Retiro realizado. Saldo: " + saldo);
+                }
+                else
+                {
+                    Console.WriteLine("Fondos insuficientes");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                Console.WriteLine("Fondos insuficientes");
+                Console.WriteLine(ex.Message);
+
             }
+            
         }
     }
 }

@@ -23,6 +23,7 @@ namespace cuentas_bancarias__con_herencia_
             cuentaa.datos();
             cuentaa.depositar();
             cuentaa.calcularinteresa();
+            cuentaa.retirar();  
             Console.WriteLine("----cuenta corriente----");
             cuentacorriente.datos();
             cuentacorriente.depositar();
@@ -31,6 +32,7 @@ namespace cuentas_bancarias__con_herencia_
             cuentanomina.datos();
             cuentanomina.depositar();
             cuentanomina.calcularinteresn();
+            cuentanomina.retirar();
         }
     }
     

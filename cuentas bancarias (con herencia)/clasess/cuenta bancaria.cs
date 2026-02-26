@@ -25,11 +25,19 @@ namespace cuentas_bancarias__con_herencia_.clasess
             }
             public void depositar()
             {
+            try
+            {
                 Console.WriteLine("cuanto deseas depositar?");
                 double deposito = Convert.ToDouble(Console.ReadLine());
                 saldo = saldo + deposito;
                 Console.WriteLine($"tu nuevo saldo es {saldo}");
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+        }
 
         }
     }

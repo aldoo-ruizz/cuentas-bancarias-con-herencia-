@@ -30,23 +30,31 @@ namespace cuentas_bancarias__con_herencia_.clasess
 
             Console.WriteLine("¿Cuánto deseas retirar?");
             double retiro = Convert.ToDouble(Console.ReadLine());
-
-            if (saldo - retiro >= -limitesobregiro)
+            try
             {
-                saldo -= retiro;
-
-                if (saldo < 0)
+                if (saldo - retiro >= -limitesobregiro)
                 {
-                    saldo -= 20;
-                    Console.WriteLine("Se aplicó comisión de 20 por sobregiro");
-                }
+                    saldo -= retiro;
 
-                Console.WriteLine("Retiro realizado. Saldo: " + saldo);
+                    if (saldo < 0)
+                    {
+                        saldo -= 20;
+                        Console.WriteLine("Se aplicó comisión de 20 por sobregiro");
+                    }
+
+                    Console.WriteLine("Retiro realizado. Saldo: " + saldo);
+                }
+                else
+                {
+                    Console.WriteLine("Excede el límite de sobregiro");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                Console.WriteLine("Excede el límite de sobregiro");
+                Console.WriteLine(ex.Message);
             }
+
+            
         }
     }
 }

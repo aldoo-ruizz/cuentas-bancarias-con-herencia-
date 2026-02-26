@@ -22,25 +22,41 @@ namespace cuentas_bancarias__con_herencia_.clasess
 
         public void calcularinteresa()
         {
-            Console.WriteLine("cuanto es la tasa de interes? (ejemplo 0.05)");
-            tasadinteres = Convert.ToDouble(Console.ReadLine());
-            Console.WriteLine($"el interes generado es: {tasadinteres * saldo}");
+            try
+            {
+                Console.WriteLine("cuanto es la tasa de interes? (ejemplo 0.05)");
+                tasadinteres = Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine($"el interes generado es: {tasadinteres * saldo}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+           
 
         }
         public void retirar()
         {
-            Console.WriteLine("¿Cuánto deseas retirar?");
-            double retiro = Convert.ToDouble(Console.ReadLine());
+            try
+            {
+                Console.WriteLine("¿Cuánto deseas retirar?");
+                double retiro = Convert.ToDouble(Console.ReadLine());
 
-            if (saldo - retiro < 500)
-            {
-                Console.WriteLine("No se puede retirar. Saldo mínimo 500");
+                if (saldo - retiro < 500)
+                {
+                    Console.WriteLine("No se puede retirar. Saldo mínimo 500");
+                }
+                else
+                {
+                    saldo -= retiro;
+                    Console.WriteLine("Retiro realizado. Saldo: " + saldo);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                saldo -= retiro;
-                Console.WriteLine("Retiro realizado. Saldo: " + saldo);
+                Console.WriteLine(ex.Message);
             }
+            
         }
 
     }
